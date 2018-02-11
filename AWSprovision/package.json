@@ -1,0 +1,16 @@
+{
+  "name": "AWSprovision",
+  "version": "0.0.0",
+  "description": "Provisioning AWS-EC2 server",
+  "main": "main.js",
+  "dependencies": {
+    "aws-sdk": "~2.192.0",
+    "promise": "~8.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rishi Jain",
+  "license": "BSD-2-Clause"
+}

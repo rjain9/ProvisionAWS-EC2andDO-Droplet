@@ -1,0 +1,17 @@
+{
+  "name": "DOprovision",
+  "version": "0.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "needle": "~2.1.1",
+    "promise": "~8.0.1",
+    "os": "~0.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rishi Jain",
+  "license": "BSD-2-Clause"
+}
