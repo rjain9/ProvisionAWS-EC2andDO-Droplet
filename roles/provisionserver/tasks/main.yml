@@ -1,9 +1,9 @@
 - name: Run main.js for AWS provisioning
   command: node main.js 
   args:
-    chdir: /home/rishi/HW1-Part2/AWSprovision
+    chdir: /home/rishi/server-provisioning/AWSprovision
 
 - name: Run main.js for DO provisioning
   command: node main.js 
   args:
-    chdir: /home/rishi/HW1-Part2/DOprovision
+    chdir: /home/rishi/server-provisioning/DOprovision
