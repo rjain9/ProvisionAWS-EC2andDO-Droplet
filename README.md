@@ -22,6 +22,7 @@ Unity ID: rjain9
    1. Intall  dependencies- git, nodejs, npm.
    2. Clone the repository containing the main.js and package.json files for AWS and Digital Ocean provisioning.
    3. Gets the modules and runs both the main.js files respectively.
+   
    NOTE: The that in real case the ansible playbook and the js files for provisioning the server will not be in the same              repository. The ansible playbook automically clones the repository. I have kept it in the same repository for                convinience.
 
 ## Concepts
