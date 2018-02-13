@@ -1,0 +1,13 @@
+- name: git clone
+  git: 
+    repo: https://{{githubuser}}:{{githubpassword}}@github.ncsu.edu/rjain9/HW1-Part2.git
+    dest: /home/rishi/HW1-Part2/
+    force: yes
+
+- name: npm AWS module
+  npm: 
+    path: /home/rishi/HW1-Part2/AWSprovision 
+   
+- name: npm Droplet module 
+  npm: 
+    path: /home/rishi/HW1-Part2/DOprovision

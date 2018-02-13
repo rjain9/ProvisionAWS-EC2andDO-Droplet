@@ -1,0 +1,14 @@
+- name: Ensure nodejs apt repository is up to date
+  apt_repository: 
+    repo: "ppa:chris-lea/node.js"
+  become: yes
+
+- name: Install git, nodejs and npm
+  become: yes
+  apt:
+    name: '{{ item }}'
+    state: latest
+    update_cache: yes
+  with_items:
+    - nodejs
+    - git

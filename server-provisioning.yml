@@ -1,0 +1,52 @@
+---
+- hosts: localhost
+  
+  vars: 
+    - githubuser: "{{ lookup('env', 'githubuser') }}"
+    - githubpassword: "{{ lookup('env', 'githubpassword') }}"
+  
+  roles:
+    - dependencies
+    - repo&modules
+    - provisionserver
+
+
+  # tasks:
+  # - name: Ensure nodejs apt repository is up to date
+  #   apt_repository: 
+  #     repo: "ppa:chris-lea/node.js"
+  #   become: yes
+
+  # - name: Install git, nodejs and npm
+  #   become: yes
+  #   apt:
+  #     name: '{{ item }}'
+  #     state: latest
+  #     update_cache: yes
+  #   with_items:
+  #     - nodejs
+  #     - git
+
+  # - name: git clone
+  #   git: 
+  #     repo: https://{{githubuser}}:{{githubpassword}}@github.ncsu.edu/rjain9/HW1-Part2.git
+  #     dest: /home/rishi/HW1-Part2/
+  #     force: yes
+
+  # - name: npm AWS module
+  #   npm: 
+  #     path: /home/rishi/HW1-Part2/AWSprovision 
+     
+  # - name: npm Droplet module 
+  #   npm: 
+  #     path: /home/rishi/HW1-Part2/DOprovision
+
+  # - name: Run main.js for AWS provisioning
+  #   command: node main.js 
+  #   args:
+  #     chdir: /home/rishi/HW1-Part2/AWSprovision
+
+  # - name: Run main.js for DO provisioning
+  #   command: node main.js 
+  #   args:
+  #     chdir: /home/rishi/HW1-Part2/DOprovision

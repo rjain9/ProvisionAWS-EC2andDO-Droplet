@@ -1,0 +1,84 @@
+- name: Add repo for java 8
+  apt_repository: repo='ppa:webupd8team/java' state=present
+  become: yes
+
+- name: Set licence selected for oracle java 8
+  shell: /bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+  become: yes
+
+- name: Set licence seen for oracle java 8
+  shell: /bin/echo debconf shared/accepted-oracle-license-v1-1 seen true | /usr/bin/debconf-set-selections
+  become: yes
+
+- name: Install java 8
+  apt: name=oracle-java8-installer state=latest update-cache=yes
+  become: yes
+
+- name: Install maven
+  apt: 
+    name: maven 
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: Add MySQL Apt Key
+  apt_key:
+    keyserver: pgpkeys.mit.edu
+    id: 8C718D3B5072E1F5
+  become: yes
+
+- name: Add MySQL repository
+  apt_repository: 
+    repo: deb http://repo.mysql.com/apt/ubuntu/ trusty mysql-5.7  
+  become: yes
+
+- name: Set root password for MySQL
+  debconf:
+    name: mysql-community-server
+    question: 'mysql-community-server/root-pass'
+    value: '{{mysqlpassword}}' 
+    vtype: password
+  become: yes
+
+- name: Set root password again for MySQL
+  debconf:
+    name: mysql-community-server
+    question: 'mysql-community-server/re-root-pass'
+    value: '{{mysqlpassword}}'
+    vtype: password
+  become: yes
+
+- name: Install MySQL 5.7
+  apt:
+    pkg: 'mysql-server'
+    state: present
+    update_cache: true
+  become: yes
+
+- name: Install Git
+  apt:
+    pkg: 'git'
+    state: present
+    update_cache: true
+  become: yes
+
+- name: Git clone CoffeeMaker
+  git: 
+    repo: https://{{githubuser}}:{{githubpassword}}@github.ncsu.edu/engr-csc326-staff/Onboarding.git 
+    dest: /home/vagrant/git/
+    force: yes
+
+- name: Rename hibernate-template.cfg.xml file to hibernate.cfg.xml
+  shell: mv /home/vagrant/git/CoffeeMaker/src/main/resources/hibernate-template.cfg.xml /home/vagrant/git/CoffeeMaker/src/main/resources/hibernate.cfg.xml   
+
+- name: Update line in hibernate.cfg.xml
+  lineinfile: 
+    path: /home/vagrant/git/CoffeeMaker/src/main/resources/hibernate.cfg.xml
+    regexp: '<property name="hibernate.connection.password"></property>'  
+    line: '<property name="hibernate.connection.password">{{ mysqlpassword }}</property>' 
+
+- name: Run
+  shell: nohup mvn spring-boot:run &
+  become: yes
+  args: 
+    chdir: /home/vagrant/git/CoffeeMaker
