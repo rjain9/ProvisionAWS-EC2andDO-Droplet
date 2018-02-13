@@ -70,11 +70,11 @@ Unity ID: rjain9
    * Security weaknesses and vulnerabilities can go undetected for extended periods due to unauthorized changes.
    * Extended outage durations and high cost of outages due to lack of readily available actionable data to the service desk.
    
-##Screencast
-Click [here]() to view the screencast demonstrating server provisioning.
+## Screencast
+Click [here](https://youtu.be/uZDz7eqeJBg) to view the screencast demonstrating server provisioning.
 
-##References
-https://docs.google.com/presentation/d/1PO_QTieMkRvW9MDEIMVS0dD5bk50fK5fvSgj5zNyPfw/edit#slide=id.g117c3bc2e1_0_0
+## References
+https://docs.google.com/presentation/d/1PO_QTieMkRvW9MDEIMVS0dD5bk50fK5fvSgj5zNyPfw/edit#slide=id.g117c3bc2e1
 
 http://restcookbook.com/HTTP%20Methods/idempotency/
 
