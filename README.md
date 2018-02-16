@@ -1,10 +1,3 @@
-# HW1-Part2
-CSC-DevOps Spring 2018: HW1-Part2
-
-Name: Rishi Jain
-
-Unity ID: rjain9
-
 ## Steps in provisioning the server
 1. Sign up with [DigitalOcean](https://www.digitalocean.com/) and [AWS](https://aws.amazon.com/)
 
